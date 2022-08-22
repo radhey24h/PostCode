@@ -19,39 +19,22 @@ namespace PostCodesAPI.Services
         /// </summary>
         /// <param name="postcode"></param>
         /// <returns></returns>
-        public string GetPostCodes(string postcode)
+        async Task<string> IPostCodeService.GetPostCodes(string postcode)
         {
-            string results = string.Empty;
             string baseUrl = _configuration["PostCode:BaseUrl"];
-            using (var wc = new System.Net.WebClient())
-            {
-                try
-                {
-                    results = wc.DownloadString(baseUrl + postcode + "/autocomplete");
-                }
-                catch (Exception) { }
-            }
-            return results;
+            var client = new HttpClient();
+            return await client.GetStringAsync(baseUrl + postcode + "/autocomplete");
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="postcode"></param>
         /// <returns></returns>
-        public string GetPostCodeDetailInfo(string postcode)
+        async Task<string> IPostCodeService.GetPostCodeDetailInfo(string postcode)
         {
-            string results = string.Empty;
             string baseUrl = _configuration["PostCode:BaseUrl"];
-            using (var wc = new System.Net.WebClient())
-            {
-                try
-                {
-                    results = wc.DownloadString(baseUrl + postcode);
-                }
-                catch (Exception) { }
-            }
-            return results;
+            var client = new HttpClient();
+            return await client.GetStringAsync(baseUrl + postcode);
         }
-
     }
 }

@@ -11,10 +11,10 @@ namespace PostCodesAPI.Modal
 
         //If an error is returned, it is held here.
         [JsonProperty("error")]
-        public string Error;
+        public string? Error;
 
         //The actual result of the API call.
         [JsonProperty("result")]
-        public List<string> Result;
+        public List<string>? Result;
     }
 }

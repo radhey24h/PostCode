@@ -9,13 +9,13 @@ namespace PostCodesAPI.Services
         /// </summary>
         /// <param name="postcode"></param>
         /// <returns></returns>
-        string GetPostCodeDetailInfo(string postcode);
+        Task<string> GetPostCodeDetailInfo(string postcode);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="postcode"></param>
         /// <returns></returns>
-        string GetPostCodes(string postcode);
+        Task<string> GetPostCodes(string postcode);
     }
 }

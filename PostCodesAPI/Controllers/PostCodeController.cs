@@ -14,7 +14,6 @@ namespace WebApplication2.Controllers
     [ApiController]
     public class PostCodeController : ControllerBase
     {
-
         private readonly ILogger<PostCodeController> _logger;
         private readonly IPostCodeService _postCodeService;
         public PostCodeController(IPostCodeService postCodeService, ILogger<PostCodeController> logger)
@@ -24,9 +23,9 @@ namespace WebApplication2.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAutoCompletePostCodes(string postcode)
+        public async Task<IActionResult> GetAutoCompletePostCodes(string postcode)
         {
-            string result = _postCodeService.GetPostCodes(postcode);
+            string result = await _postCodeService.GetPostCodes(postcode);
             if (string.IsNullOrEmpty(result))
                 return BadRequest("Request is incorrect");
 
@@ -38,9 +37,9 @@ namespace WebApplication2.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetPostCodeDetails(string postcode)
+        public async Task<IActionResult> GetPostCodeDetails(string postcode)
         {
-            string result = _postCodeService.GetPostCodeDetailInfo(postcode);
+            string result =await _postCodeService.GetPostCodeDetailInfo(postcode);
             if (string.IsNullOrEmpty(result))
                 return BadRequest("Request is incorrect");
 
