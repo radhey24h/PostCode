@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Autocomplete, Paper, CircularProgress, TextField } from '@mui/material';
 import PinCodeDetails from './Components/PinCodeDetails';
-import './App.css';
 import PostCodeService from './Services/postcode-service'
+import './App.css';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -11,11 +11,8 @@ function App() {
   const loading = open && options.length === 0;
 
   const onChangeHandle = async (value: any) => {
-    PostCodeService.GetAutoCompletePostCodes(value).then(x => {
-      setOptions(x.data ? x.data : []);
-    }).catch(error => {
-      console.log(error);
-    });
+    const response = await PostCodeService.GetAutoCompletePostCodes(value);
+    setOptions(response.data);
   };
 
   useEffect(() => {
@@ -84,6 +81,7 @@ function App() {
             />
           )}
         />
+
       </Paper>
       {postCode === '' ? null : <PinCodeDetails postCode={postCode} />}
     </div>

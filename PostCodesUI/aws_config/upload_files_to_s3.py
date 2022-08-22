@@ -35,7 +35,7 @@ if __name__ == "__main__":
     for path in Path(src_dir).rglob('*'):
         if path.is_file():
             filename = path.relative_to(src_dir)
-            filename = str(filename)
+            filename = "/".join(filename.parts)
             path = str(path)
             if filename.endswith('html'):
                 ExtraArgs = {'ContentType': 'text/html'}
