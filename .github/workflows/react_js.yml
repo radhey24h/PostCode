@@ -35,20 +35,18 @@ jobs:
       run: |
         yarn install
 
-    - name: Staging Build
-      run: |
-        yarn build
-    
-    - name: Deploy to S3
-      uses: jakejarvis/s3-sync-action@master
+    - name: Build
+      run: yarn run build
+
+    - name: Set AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
       with:
-        args: --acl public-read --delete
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
-        aws-region: us-east-1
-        SOURCE_DIR: "./build"
+        aws-region: eu-west-1
+
+    - name: Deploy to S3
+      run: yarn run deploy
 
     - name: Deploy to AWS CloudFormation
       uses: aws-actions/aws-cloudformation-github-deploy@v1
