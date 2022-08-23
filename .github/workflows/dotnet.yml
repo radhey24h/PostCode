@@ -2,9 +2,8 @@ name: Deploy PostCode App
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    paths:
+      - PostCodesAPI/**
 
 defaults:
   run:
