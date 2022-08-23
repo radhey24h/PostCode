@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Autocomplete, Paper, CircularProgress, TextField } from '@mui/material';
 import PinCodeDetails from './Components/PostCodeDetails';
 import PostCodeService from './Services/postcode-service';
