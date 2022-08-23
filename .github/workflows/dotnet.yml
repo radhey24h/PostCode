@@ -1,4 +1,4 @@
-name: Deploy PostCode App
+name: PostCode API App
 
 on:
   push:

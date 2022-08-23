@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: ReactJS PostCode App
+name: ReactJS PostCode UI App
 
 on: 
   push:
@@ -16,6 +16,9 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      working-directory: ./PostCodesUI
+      
     strategy:
       matrix:
         node-version: [16.x]
@@ -25,7 +28,7 @@ jobs:
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: PostCodesUI
-        template: ./aws_config/s3_static_website.yaml
+        template: ./PostCodesUI/aws_config/s3_static_website.yaml
 
     - uses: actions/checkout@v3
 
@@ -51,4 +54,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
-        SOURCE_DIR: "./build"
+        SOURCE_DIR: "./PostCodesUI/build"
