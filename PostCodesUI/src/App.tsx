@@ -3,6 +3,7 @@ import { Autocomplete, Paper, CircularProgress, TextField } from '@mui/material'
 import PinCodeDetails from './Components/PostCodeDetails';
 import PostCodeService from './Services/postcode-service';
 import './App.css';
+//import PostCodes from './Components/PostCodes';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="App">
+      <PostCodes/>
       <Paper style={{
         background: 'white',
         width: '150vh',
