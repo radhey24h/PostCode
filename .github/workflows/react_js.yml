@@ -24,23 +24,13 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - name: Configure environment name
-      id: env-name
-      env:
-        REPO: ${{ github.repository }}
-      run: |
-        ENVIRONMENT=`echo $REPO | tr "/" "-"`
-        echo "Environment name: $ENVIRONMENT"
-        echo "::set-output name=environment::$ENVIRONMENT"
+    - uses: actions/checkout@v3
 
     - name: Deploy to AWS CloudFormation
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: PostCodesUI
-        working-directory: ./PostCodesUI
-        template: ./aws_config/s3_static_website.yaml
-
-    - uses: actions/checkout@v3
+        template: ./PostCodesUI/aws_config/s3_static_website.yaml
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
