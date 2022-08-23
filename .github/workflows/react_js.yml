@@ -46,7 +46,7 @@ jobs:
         aws-region: eu-west-1
 
     - name: Deploy to S3
-      run: yarn run deploy
+      run: aws s3 sync ./build s3://postcodeui.com
 
     - name: Deploy to AWS CloudFormation
       uses: aws-actions/aws-cloudformation-github-deploy@v1
