@@ -24,7 +24,7 @@ jobs:
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: PostCodesUI
-        template: ./PostCodesUI/aws_config/s3_static_website.yaml
+        template: ./aws_config/s3_static_website.yaml
 
     - uses: actions/checkout@v3
 
@@ -50,4 +50,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
-        SOURCE_DIR: "./PostCodesUI/build"
+        SOURCE_DIR: "./build"
