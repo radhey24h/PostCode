@@ -6,7 +6,7 @@ Parameters:
     Type: String
     Default: postcodeui.com
   Region:
-    description: "AWS Region"
+    Type: "String"
     Default: "us-east-1"
 Resources:
   S3Bucket:
