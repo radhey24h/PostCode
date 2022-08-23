@@ -44,7 +44,7 @@ jobs:
       with:
         args: --acl public-read --delete
       env:
-        aws_s3_bucket: ${{ secrets.AWS_STAGING_BUCKET_NAME }}
+        AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
         aws-region: us-east-1
@@ -58,4 +58,3 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
         aws-region: us-east-1
-        
