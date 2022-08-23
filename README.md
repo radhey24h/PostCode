@@ -1,1 +1,1 @@
-Please follow both readme files for UI and API Deloyment.
+I have added two readme file one for UI another one for API Deployment.
