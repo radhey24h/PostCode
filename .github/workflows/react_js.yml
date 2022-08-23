@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       working-directory: ./PostCodesUI
-      
+
     strategy:
       matrix:
         node-version: [16.x]
@@ -28,7 +28,7 @@ jobs:
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: PostCodesUI
-        template: ./PostCodesUI/aws_config/s3_static_website.yaml
+        template: ./s3_static_website.yaml
 
     - uses: actions/checkout@v3
 
