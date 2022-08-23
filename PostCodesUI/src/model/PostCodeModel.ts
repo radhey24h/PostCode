@@ -1,4 +1,4 @@
-export const postCodeDetails = {
+export const postCodeModel = {
     postcode: '',
     country: '',
     region: '',

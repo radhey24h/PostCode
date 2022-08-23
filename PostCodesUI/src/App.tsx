@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Autocomplete, Paper, CircularProgress, TextField } from '@mui/material';
-import PinCodeDetails from './Components/PinCodeDetails';
-import PostCodeService from './Services/postcode-service'
+import PinCodeDetails from './Components/PostCodeDetails';
+import PostCodeService from './Services/postcode-service';
 import './App.css';
 
 function App() {
