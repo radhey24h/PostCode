@@ -3,10 +3,11 @@
 
 name: ReactJS PostCode App
 
-on:
+on: 
   push:
-    paths:
-      - PostCodesUI/**
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 defaults:
   run:
