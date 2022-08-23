@@ -26,14 +26,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Deploy to AWS CloudFormation
-      uses: aws-actions/aws-cloudformation-github-deploy@v1
-      with:
-        name: PostCodesUI
-        template: ./PostCodesUI/aws_config/s3_static_website.yaml
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
-        aws-region: us-east-1
+    - name: Run script file
+      run: |
+         chmod +x ./scripts/run.sh
+         ./scripts/run.sh
+      shell: bash
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
